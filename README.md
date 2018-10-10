@@ -1,2 +1,0 @@
-# clicktool-template-generator
-
