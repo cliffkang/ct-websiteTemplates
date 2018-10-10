@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-const HomeDiv = styled.div`
+const ProjectsDiv = styled.div`
 	background: #efefef;
 `;
 
-class Home extends Component {
+class Projects extends Component {
 	render() {
 		return (
-			<HomeDiv>
-			</HomeDiv>
+			<ProjectsDiv>
+			</ProjectsDiv>
 		);
 	}
 }
@@ -20,4 +20,4 @@ const mapStateToProps = (state) => {
 	} 
 }
 
-export default connect(mapStateToProps, {  })(Home);
+export default connect(mapStateToProps, {  })(Projects);
