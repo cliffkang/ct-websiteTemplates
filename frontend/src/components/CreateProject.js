@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-const TemplateDiv = styled.div`
+const CreateProjectDiv = styled.div`
 	background: #efefef;
 `;
 
-class Template extends Component {
+class CreateProject extends Component {
 	render() {
 		return (
-			<TemplateDiv>
-			</TemplateDiv>
+			<CreateProjectDiv>
+			</CreateProjectDiv>
 		);
 	}
 }
@@ -20,4 +20,4 @@ const mapStateToProps = (state) => {
 	} 
 }
 
-export default connect(mapStateToProps, {  })(Template);
+export default connect(mapStateToProps, {  })(CreateProject);
