@@ -5,7 +5,6 @@ import Projects from './Projects';
 import ResponsiveCreator from './ResponsiveCreate';
 
 const CreateHomeDiv = styled.div`
-	background: #efefef;
 `;
 
 class CreateHome extends Component {
