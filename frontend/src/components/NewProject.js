@@ -7,10 +7,15 @@ const ProjectDiv = styled.div`
 `;
 
 class Project extends Component {
-	state= {
-		companyName: 'Clicktool',
-		// headline: this.props.project.headline,
-		selectedEle: '',
+	constructor(props) {
+		super(props)
+		this.state = {
+			companyName: 'Clicktool',
+			// headline: this.props.project.headline,
+			selectedEle: '',
+			templateIDs: ['companyLogo', 'companyName', 'headline'],
+		}
+		this.htmlRef = React.createRef();
 	}
 
 	// const doc = document.getElementById('id')
@@ -23,13 +28,17 @@ class Project extends Component {
 	// css[attributeToBeChanged] = valueToBeChanged;
 	// doc.setAttribute('style', css);
 
+	componentDidMount() {
+		console.log('container', this.htmlRef.current);
+	}
+
 	render() {
 		return (
-			<ProjectDiv>
-				<div id='companyLogo'></div>
+			<div id='container' ref={this.htmlRef}>
+				<div id='companyLogo'>put something in here</div>
 				<h3 id='companyName'>{this.state.companyName}</h3>
 				<div id='headline'>{this.state.headline}</div>
-			</ProjectDiv>
+			</div>
 		);
 	}
 }

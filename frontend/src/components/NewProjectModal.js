@@ -30,6 +30,7 @@ const styles = theme => ({
         bottom: '0',
         top: '0',
         margin: '50px auto',
+        maxHeight: '400px',
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
         padding: theme.spacing.unit * 4,
@@ -97,7 +98,7 @@ class NewProjectModal extends React.Component {
                             margin="normal"
                             variant="outlined"
                         />
-                        <Button color='primary' variant='contained' onClick={this.handleClose}>
+                        <Button style={{ marginTop: '15px' }} size='large' color='primary' variant='contained' onClick={this.handleClose}>
                             Save
                         </Button>
                     </FormControl>
