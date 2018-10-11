@@ -42,8 +42,8 @@ class Editor extends Component {
 		return (
 			<EditorDiv className={classes.root}>
                 <AppBar className={classes.appBar} position="static" color='default' size='large'>
-                    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                        <div className='selected-edits'>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
+                        <div style={{ margin: '0 50px 0 20px' }} className='selected-edits'>
                             <Button 
                                 onClick={this.handleClick('backgroundBool')} 
                                 variant='contained'
@@ -58,7 +58,12 @@ class Editor extends Component {
                                 Edit css
                             </Button>
                         </div>
-                        <Button onClick={this.handleClick('exportBool')} variant='contained' color='secondary'>
+                        <Button variant='outlined' color='primary'>PROJECT NAME: {this.props.project.projectName}</Button>
+                        <Button 
+                            onClick={this.handleClick('exportBool')} 
+                            variant='contained' 
+                            color='secondary'
+                            style={{ margin: '0 20px 0 50px' }}>
                             Export
                         </Button>
                     </div>
@@ -73,7 +78,7 @@ class Editor extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-        project: this.state.currentProject,
+        project: state.project,
 	} 
 }
 

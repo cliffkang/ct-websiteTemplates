@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createProject } from '../actions';
+import { createProject } from '../../actions';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
@@ -18,6 +18,7 @@ const styles = theme => ({
         bottom: '0',
         top: '0',
         margin: '50px auto',
+        minHeight: '370px',
         maxHeight: '400px',
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
@@ -36,14 +37,14 @@ const styles = theme => ({
 class NewProjectModal extends React.Component {
     state = {
         open: true,
-        name: '',
+        projectName: '',
         headline: '',
         companyName: '',
     };
 
     handleClose = () => {
-        const { name, headline, companyName } = this.state;
-        this.props.createProject({ name, headline, companyName }, () => {
+        const { projectName, headline, companyName } = this.state;
+        this.props.createProject({ projectName, headline, companyName }, () => {
             this.setState({ open: false }) 
         });
     };
@@ -68,8 +69,8 @@ class NewProjectModal extends React.Component {
                             id="outlined-name"
                             label="Name of the Project"
                             className={classes.textField}
-                            value={this.state.name}
-                            onChange={this.handleChange('name')}
+                            value={this.state.projectName}
+                            onChange={this.handleChange('projectName')}
                             margin="normal"
                             variant="outlined"
                         />

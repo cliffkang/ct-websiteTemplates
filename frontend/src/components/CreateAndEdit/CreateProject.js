@@ -11,8 +11,7 @@ const CreateProjectDiv = styled.div`
 
 class CreateProject extends Component {
     render() {
-        let { project }= this.props;
-        project = [{ companyName: 'clicktool' }];
+        let { project } = this.props;
         const projectExist = Object.keys(project).length ? true : false;
 		return (
 			<CreateProjectDiv>
