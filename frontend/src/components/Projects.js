@@ -32,7 +32,7 @@ function Projects(props) {
                     </Typography>
                     <Link to='/createProject'>
                         <Button 
-                            variant='contained' 
+                            variant='contained'
                             color='secondary'
                             style={{ width: '250px'}}
                         >

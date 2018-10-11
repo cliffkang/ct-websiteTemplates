@@ -26,8 +26,6 @@ class NewProject extends Component {
 
 	componentDidMount() {
 		const ele = document.getElementById('new-project-container');
-		console.log('ele is', ele);
-		console.log('css', ele.style);
 		const css = window.getComputedStyle(ele, null);
 		const html = this.htmlRef.current;
 		this.props.updateProject({ html, css });
