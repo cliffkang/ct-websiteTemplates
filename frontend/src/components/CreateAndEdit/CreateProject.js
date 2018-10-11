@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import ResponsiveCreator from './ResponsiveCreator';
+import ResponsiveCreator from '../ResponsiveCreator';
 import NewProjectModal from './NewProjectModal';
-import NewProject from './NewProject';
+import NewProjectEditor from './NewProjectEditor';
 
 const CreateProjectDiv = styled.div`
 	background: #efefef;
@@ -18,7 +18,7 @@ class CreateProject extends Component {
 			<CreateProjectDiv>
                 <ResponsiveCreator>
                     {projectExist ? 
-                        <NewProject />
+                        <NewProjectEditor />
                     :
                         <NewProjectModal />
                     }

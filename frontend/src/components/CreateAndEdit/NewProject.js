@@ -6,7 +6,7 @@ const ProjectDiv = styled.div`
 	background: #efefef;
 `;
 
-class Project extends Component {
+class NewProject extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -49,4 +49,4 @@ const mapStateToProps = (state) => {
 	} 
 }
 
-export default connect(mapStateToProps, {  })(Project);
+export default connect(mapStateToProps, {  })(NewProject);
