@@ -18,8 +18,6 @@ class NewProject extends Component {
 		this.htmlRef = React.createRef();
 	}
 
-	// const doc = document.getElementById('id')
-	// const html = doc.outerHTML
 	// const css = getComputedStyle(doc)
 	
 	// manipulate css
@@ -35,7 +33,7 @@ class NewProject extends Component {
 	render() {
 		return (
 			<div id='container' ref={this.htmlRef}>
-				<div id='companyLogo'>put something in here</div>
+				<div id='companyLogo'>THE BEST COMPANY LOGO</div>
 				<h3 id='companyName'>{this.state.companyName}</h3>
 				<div id='headline'>{this.state.headline}</div>
 			</div>

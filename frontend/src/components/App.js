@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import '../css/App.css';
 import Homepage from './Homepage';
-import CreateHome from './CreateHome';
-import CreateProject from './CreateProject';
+import CreateHome from './CreateAndEdit/CreateHome';
+import CreateProject from './CreateAndEdit/CreateProject';
 
 class App extends Component {
   render() {
