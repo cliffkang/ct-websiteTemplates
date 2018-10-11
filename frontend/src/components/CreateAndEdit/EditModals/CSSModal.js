@@ -43,12 +43,13 @@ class SimpleModal extends React.Component {
                     onClose={this.handleClose}
                 >
                     <div className={classes.paper}>
-                        <Typography variant="h6" id="modal-title">
-                        Text in a modal
-                        </Typography>
-                        <Typography variant="subtitle1" id="simple-modal-description">
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                        </Typography>
+                        {Object.keys(this.props.project.css).map(e => {
+                            return (
+                                <Typography>
+                                    {this.props.project.css[e]}
+                                </Typography>
+                            )
+                        })}
                     </div>
                 </Modal>
             </div>
@@ -62,6 +63,7 @@ SimpleModal.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
+        project: state.project,
     } 
 }
 

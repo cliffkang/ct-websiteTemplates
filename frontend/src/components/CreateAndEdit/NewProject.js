@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import '../../css/NewProject.css';
 import { updateProject } from '../../actions';
 
 class NewProject extends Component {
@@ -24,8 +25,12 @@ class NewProject extends Component {
 	// doc.setAttribute('style', css);
 
 	componentDidMount() {
+		const ele = document.getElementById('new-project-container');
+		console.log('ele is', ele);
+		console.log('css', ele.style);
+		const css = window.getComputedStyle(ele, null);
 		const html = this.htmlRef.current;
-		this.props.updateProject({ html });
+		this.props.updateProject({ html, css });
 	}
 
 	handleChange = name => event => {
