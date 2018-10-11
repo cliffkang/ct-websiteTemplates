@@ -7,6 +7,8 @@ const ProjectReducer = (project = {}, action) => {
                 project[e] = action.payload[e];
             })
             return project;
+        case 'SAVE_PROJECT':
+            return project;
         default:
             return project;
     }

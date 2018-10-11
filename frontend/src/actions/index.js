@@ -1,3 +1,4 @@
+import axios from 'axios';
 const ROOT_URL = 'http://localhost:5000';
 
 export const createProject = project => {
@@ -15,6 +16,19 @@ export const updateProject = update => {
         dispatch({
             type: 'UPDATE_PROJECT',
             payload: update,
+        })
+    }
+}
+
+export const saveProject = project => {
+    // axios.put(`${ROOT_URL}/saveProject`, project)
+    //     .then(project => {
+
+    //     })
+    return dispatch => {
+        dispatch({
+            type: 'SAVE_PROJECT',
+            payload: project
         })
     }
 }

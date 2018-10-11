@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
+import { saveProject } from '../../actions';
 import { withStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
 import AppBar from '@material-ui/core/AppBar';
@@ -29,12 +31,18 @@ class Editor extends Component {
         backgroundBool: false,
         cssBool: false,
         exportBool: false,
+        redirectFlag: false,
     }
     handleClick = name => event => {
         const nameBool = !this.state[name];
         this.setState({ [name] : nameBool }, () => {
             console.log('state postClick', this.state);
         });
+    }
+
+     handleSave = async () => { 
+        await this.props.saveProject(this.props.project)
+        this.setState({ redirectFlag: true });
     }
 
 	render() {
@@ -59,18 +67,38 @@ class Editor extends Component {
                             </Button>
                         </div>
                         <Button variant='outlined' color='primary'>PROJECT NAME: {this.props.project.projectName}</Button>
-                        <Button 
-                            onClick={this.handleClick('exportBool')} 
-                            variant='contained' 
-                            color='secondary'
-                            style={{ margin: '0 20px 0 50px' }}>
-                            Export
-                        </Button>
+                        <div>
+                            <Button 
+                                onClick={this.handleClick('exportBool')} 
+                                variant='outlined' 
+                                color='secondary'
+                                style={{ margin: '0 20px 0 50px' }}>
+                                Export
+                            </Button>
+                            <Button 
+                                onClick={this.handleSave} 
+                                variant='contained' 
+                                color='secondary'
+                                size='large'
+                                style={{ margin: '0 20px 0 0' }}>
+                                SAVE
+                            </Button>
+                        </div>
                     </div>
                 </AppBar>
-                {this.state.backgroundBool ? <BackgroundColorModal handleClose={this.handleClick('backgroundBool')} open={this.state.backgroundBool}/> : null}
-                {this.state.cssBool ? <CSSModal handleClose={this.handleClick('cssBool')} open={this.state.cssBool}/> : null}
-                {this.state.exportBool ? <ExportModal handleClose={this.handleClick('exportBool')} open={this.state.exportBool}/> : null}
+                {this.state.backgroundBool ? 
+                    <BackgroundColorModal 
+                        handleClose={this.handleClick('backgroundBool')} 
+                        open={this.state.backgroundBool}/> : null}
+                {this.state.cssBool ? 
+                    <CSSModal 
+                        handleClose={this.handleClick('cssBool')} 
+                        open={this.state.cssBool}/> : null}
+                {this.state.exportBool ? 
+                    <ExportModal 
+                        handleClose={this.handleClick('exportBool')} 
+                        open={this.state.exportBool}/> : null}
+                {this.state.redirectFlag ? <Redirect to='/createHome' /> : null}
 			</EditorDiv>
 		);
 	}
@@ -82,4 +110,4 @@ const mapStateToProps = (state) => {
 	} 
 }
 
-export default connect(mapStateToProps, {  })(withStyles(styles)(Editor));
+export default connect(mapStateToProps, { saveProject })(withStyles(styles)(Editor));

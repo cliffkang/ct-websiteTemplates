@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { updateProject } from '../../actions';
 
-const ProjectDiv = styled.div`
-	background: #efefef;
-`;
-
 class NewProject extends Component {
 	constructor(props) {
 		super(props)
@@ -28,7 +24,6 @@ class NewProject extends Component {
 	// doc.setAttribute('style', css);
 
 	componentDidMount() {
-		console.log('container', this.htmlRef.current);
 		const html = this.htmlRef.current;
 		this.props.updateProject({ html });
 	}
@@ -43,7 +38,6 @@ class NewProject extends Component {
 		const ele = event.target;
 		ele.style.border = '1px solid lightblue';
 		ele.setAttribute('contentEditable', true);
-		// this.forceUpdate();
 	}
 
 	render() {
