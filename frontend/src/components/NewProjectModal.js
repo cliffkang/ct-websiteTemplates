@@ -23,10 +23,13 @@ function getModalStyle() {
 
 const styles = theme => ({
     paper: {
-        position: 'fixed',
+        position: 'absolute',
         width: theme.spacing.unit * 50,
-        top: '50vh',
-        left: '50vw',
+        left: '0',
+        right: '0',
+        bottom: '0',
+        top: '0',
+        margin: '50px auto',
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
         padding: theme.spacing.unit * 4,
@@ -64,7 +67,7 @@ class NewProjectModal extends React.Component {
                 open={this.state.open}
                 onClose={this.handleClose}
             >
-                <div style={getModalStyle()} className={classes.paper}>
+                <div className={classes.paper}>
                     <Typography variant='h4'>Create a New Project</Typography>
                     <FormControl fullWidth className={classes.margin}>
                         <TextField
@@ -88,13 +91,15 @@ class NewProjectModal extends React.Component {
                         <TextField
                             id="outlined-headline"
                             label="The Best Headline Ever"
-                            defaultValue="foo"
                             value={this.state.headline}
                             onChange={this.handleChange('headline')}
                             className={classes.textField}
                             margin="normal"
                             variant="outlined"
                         />
+                        <Button color='primary' variant='contained' onClick={this.handleClose}>
+                            Save
+                        </Button>
                     </FormControl>
                 </div>
             </Modal>
@@ -108,9 +113,8 @@ NewProjectModal.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
+        project: state.currentProject
     } 
 }
 
-const NewProjectModalWrapped = withStyles(styles)(NewProjectModal);
-
-export default connect(mapStateToProps, {  })(NewProjectModalWrapped);
+export default connect(mapStateToProps, {  })(withStyles(styles)(NewProjectModal));
