@@ -30,7 +30,7 @@ function Projects(props) {
                     <Typography variant="display2" color="inherit">
                         Projects
                     </Typography>
-                    <Link to='/newProject'>
+                    <Link to='/createProject'>
                         <Button 
                             variant='contained' 
                             color='secondary'

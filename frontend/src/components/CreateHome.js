@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Projects from './Projects';
-import ResponsiveCreator from './ResponsiveCreate';
+import ResponsiveCreator from './ResponsiveCreator';
 
 const CreateHomeDiv = styled.div`
 `;
