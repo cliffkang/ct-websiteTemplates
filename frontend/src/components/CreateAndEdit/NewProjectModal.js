@@ -44,9 +44,8 @@ class NewProjectModal extends React.Component {
 
     handleClose = () => {
         const { projectName, headline, companyName } = this.state;
-        this.props.createProject({ projectName, headline, companyName }, () => {
-            this.setState({ open: false }) 
-        });
+        this.props.createProject({ projectName, headline, companyName });
+        this.setState({ open: false }) 
     };
 
     handleChange = name => event => {

@@ -11,7 +11,7 @@ const corsOptions = {
    "credentials": true,
 };
 
-server.use(cors(corsOptions));
+server.use(cors());
 server.use(express.json());
 server.use(morgan('combined'));
 

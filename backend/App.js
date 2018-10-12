@@ -7,13 +7,9 @@ const pass = process.env.MLAB_PASSWORD;
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect(`mongodb://${user}:${pass}@ds229373.mlab.com:29373/templator`)
-  .then(result => {
-    console.log('Mongo Connected');
-  })
-  .catch(error => {
-    console.log('Error connecting to Mongo.', error);
-  });
+  .connect(`mongodb://${user}:${pass}@ds229373.mlab.com:29373/templator`, { useNewUrlParser: true })
+  .then(result => console.log('Mongo Connected'))
+  .catch(error => console.error('Error connecting to Mongo.', error));
 
 server.listen(port, () => {
     console.log(`Server listening on port ${port}`)

@@ -2,12 +2,19 @@ import axios from 'axios';
 const ROOT_URL = 'http://localhost:5000';
 
 export const createProject = project => {
+    console.log('came into createProject action', project);
     return dispatch => {
         dispatch({
             type: 'CREATE_PROJECT',
             payload: project,
-        });
+        })
     };
+    // axios.post(`${ROOT_URL}/createProject`, project)
+    //     .then(project => {
+    //         console.log('reaches here?', project.data);
+    //         return dispatch => {
+    //         };
+    //     })
 };
 
 export const updateProject = update => {

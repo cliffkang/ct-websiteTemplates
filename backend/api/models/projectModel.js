@@ -6,6 +6,8 @@ const ProjectSchema = Schema({
     projectName: String,
     companyName: String,
     headline: String,
+    html: Schema.Types.Mixed,
+    css: Schema.Types.Mixed,
 });
 
 module.exports = mongoose.model('Project', ProjectSchema);
